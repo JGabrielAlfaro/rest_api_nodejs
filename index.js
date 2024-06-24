@@ -2,6 +2,7 @@ const express = require('express');
 const routes = require('./routes');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Permite que un cliente se conecte a un servidor para el intercambio de datos
 require('dotenv').config()
 
 
@@ -30,6 +31,9 @@ const app = express();
 //Habilitar body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//Habilitar CORS
+app.use(cors());
 
 //Rutas de la app
 app.use('/', routes());
