@@ -12,7 +12,8 @@ exports.nuevoCliente = async (req, res,next) => {
        res.json({mensaje: 'Se agrego un nuevo cliente'});
     } catch (error) {    
        //si hay un error, console.log el error y next
-       console.log(error);
+    //    console.log(error);
+    res.send(error);
        next();
     }
 }
