@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 exports.nuevoPedido = async (req, res, next) => {
     const pedido = new Pedidos(req.body);
-    console.log(req.body)
+    // console.log(req.body)
     try {
         await pedido.save();
         res.json({ mensaje: 'Se agrego un nuevo pedido' });

@@ -62,7 +62,6 @@ exports.subirArchivo = (req, res, next) => {
     })
 }
 
-
 //Obtiene todos los productos
 exports.mostrarProductos = async (req, res, next) => {
     try {
@@ -130,6 +129,17 @@ exports.eliminarProducto = async (req, res, next) => {
         const { id } = req.params;
         let producto = await Productos.findOneAndDelete({_id:id}).lean();
         res.json({mensaje: 'Se elimino el producto'});
+    } catch (error) {
+        console.log(error);
+        next();
+    }
+}
+
+exports.buscarProducto = async (req, res, next) => {
+    try {
+        const { query } = req.params;
+        const producto = await Productos.find({nombre:new RegExp(query, 'i')}).lean();
+        res.json(producto);
     } catch (error) {
         console.log(error);
         next();
