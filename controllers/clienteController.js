@@ -6,13 +6,15 @@ const ObjectId = mongoose.Types.ObjectId;
 exports.nuevoCliente = async (req, res,next) => {
     const cliente = new Clientes(req.body);
 
+    // console.log(cliente);
+
     try {
        //Almacenar el registro
        await cliente.save();
        res.json({mensaje: 'Se agrego un nuevo cliente'});
     } catch (error) {    
        //si hay un error, console.log el error y next
-    //    console.log(error);
+        // console.log(error);
     res.send(error);
        next();
     }
@@ -74,6 +76,7 @@ exports.eliminarCliente = async (req, res, next) => {
     try {
         const { id } = req.params;
         const cliente = await Clientes.findOneAndDelete({_id:id}).lean();
+        // console.log(id)
         res.json({mensaje: 'Se elimino el cliente'});
     } catch (error) {
         console.error('Error al eliminar el cliente:', error);

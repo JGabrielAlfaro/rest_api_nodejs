@@ -7,7 +7,9 @@ module.exports = (req, res, next) => {
     if (!authHeader) {
         const error = new Error('No autenticado, no hay JWT');  
         error.statusCode = 401;
+        // return res.redirect('http://www.localhost:5173/');
         throw error;
+       
     }
 
     //obtener el token y verificarlo

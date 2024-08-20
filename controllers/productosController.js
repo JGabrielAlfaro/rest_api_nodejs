@@ -9,6 +9,7 @@ const fs = require('fs');
 exports.nuevoProducto = async (req, res, next) => {
     const producto = new Productos(req.body);
 
+    console.log(req.file.name)
     try {
         if(req.file.filename){
            producto.imagen = req.file.filename

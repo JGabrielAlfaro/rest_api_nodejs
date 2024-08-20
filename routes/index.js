@@ -26,7 +26,7 @@ module.exports = function(){
    router.get('/productos/:id',auth, productosController.mostrarProducto); //Muestra un producto en especifico
    router.put('/productos/:id',auth,productosController.subirArchivo, productosController.actualizarProducto);  //Actualiza un producto
    router.delete('/productos/:id',auth, productosController.eliminarProducto); //Elimina un producto
-   router.post('/productos/busqueda/:query',auth, productosController.buscarProducto); //Busca un producto
+   router.get('/productos/busqueda/:query',auth, productosController.buscarProducto); //Busca un producto
 
 
 
